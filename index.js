@@ -3,8 +3,8 @@ const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","="
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 let charactersOptions = characters;
-let passwordOne = "test";
-let passwordTwo = "test";
+let passwordOne = "";
+let passwordTwo = "";
 let passwordOneElement = document.querySelector("#password1-el");
 let passwordTwoElement = document.querySelector("#password2-el");
 let passwordLengthElement = document.querySelector("#password-length");
@@ -17,7 +17,10 @@ let numbersCheckbox = document.querySelector("#numbers");
 function generate() {
 passwordLength = getPasswordLength();
 getOptions();
-console.log(charactersOptions);
+passwordOne = generatePassword();
+passwordTwo = generatePassword();
+passwordOneElement.textContent = passwordOne;
+passwordTwoElement.textContent = passwordTwo;
 }
 
 function getPasswordLength() {
@@ -34,4 +37,14 @@ function getOptions() {
     }
 }
 
+function generatePassword() {
+    let generatedPassword = "";
+    
+    for(let i = 0; i < passwordLength; i++){
+        let char = charactersOptions[Math.floor(Math.random()*charactersOptions.length)];
+        generatedPassword += char;
+    }
+    
+    return generatedPassword;
+}
 
