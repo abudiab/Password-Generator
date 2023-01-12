@@ -73,7 +73,51 @@ body {
 }
 
 #generate-button{
+    /* margin-top: 51px; */
+}
+
+#actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 51px;
+}
+
+#options {
+    margin-left: 40px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+}
+
+input#password-length{
+    width: 40px;
+    height: 20px;
+    background: #273549;
+    color: #55F991;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+}
+
+input {
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
 
 .horizontal-separator {
