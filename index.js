@@ -5,6 +5,7 @@ const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let charactersOptions = characters;
 let passwordOne = "";
 let passwordTwo = "";
+const generateButton = document.querySelector("#generate-button");
 const passwordOneElement = document.querySelector("#password1-el");
 const passwordTwoElement = document.querySelector("#password2-el");
 const passwordLengthElement = document.querySelector("#password-length");
@@ -13,6 +14,17 @@ let symbolsChecked = false;
 let numbersChecked = false;
 const symbolsCheckbox = document.querySelector("#symbols");
 const numbersCheckbox = document.querySelector("#numbers");
+const finePrint = document.querySelector(".fine-print");
+
+
+/*Event Listeners*/
+
+generateButton.addEventListener('click', generate);
+passwordOneElement.addEventListener('click', copyPassword);
+passwordTwoElement.addEventListener('click', copyPassword)
+
+
+/*Functions*/
 
 function generate() {
 passwordLength = getPasswordLength();
@@ -46,5 +58,16 @@ function generatePassword() {
     }
     
     return generatedPassword;
+}
+
+function copyPassword(e) {
+    let copiedText = e.target.textContent;
+    console.log('copied');
+    navigator.clipboard.writeText(copiedText);
+    finePrint.textContent = "Copied!";
+    setTimeout(function(){
+
+        finePrint.textContent = "* Click on password to copy to clipboard.";
+    }, 1000); 
 }
 
